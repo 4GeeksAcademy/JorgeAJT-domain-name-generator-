@@ -28,16 +28,38 @@ window.onload = function() {
     } else return stringNoun; // sino coincide, devuelvo el nombre tal cual sin cambiar
   };
 
-  for (let i = 0; i < pronoun.length; i++) {
-    for (let j = 0; j < adj.length; j++) {
-      for (let k = 0; k < noun.length; k++) {
-        for (let m = 0; m < ext.length; m++) {
-          let newNoun = stringCoincidence(noun[k], ext[m]);
-          console.log(`${pronoun[i]}${adj[j]}${newNoun}${ext[m]}`);
+  // genera todos los posibles dominios
+
+  const createDomains = () => {
+    let domains = "";
+    for (let i = 0; i < pronoun.length; i++) {
+      for (let j = 0; j < adj.length; j++) {
+        for (let k = 0; k < noun.length; k++) {
+          for (let m = 0; m < ext.length; m++) {
+            let newNoun = stringCoincidence(noun[k], ext[m]);
+            if (newNoun == noun[k]) {
+              domains += `${pronoun[i]}${adj[j]}${newNoun}${ext[m]}<br>`;
+            } else if (newNoun != noun[k]) {
+              domains += `<b>${pronoun[i]}${adj[j]}${newNoun}${ext[m]}</b><br>`; // si son domain hacks, ponerlo en negrita
+            }
+          }
         }
       }
     }
-  }
+    return domains;
+  };
+
+  // Obtén una referencia al botón por su ID
+  let button = document.getElementById("generatorButton");
+
+  // Obtén una referencia al elemento donde mostrarás los resultados
+  let resultingDomains = document.getElementById("generatedDomains");
+
+  // Asigna un manejador de eventos al botón
+  button.addEventListener("click", function() {
+    // Llama a la función createDomains y muestra los resultados
+    resultingDomains.innerHTML = createDomains();
+  });
 
   // let newnoun = "skynet";
   // let newext = ".net";

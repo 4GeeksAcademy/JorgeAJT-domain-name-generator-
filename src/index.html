@@ -13,23 +13,50 @@
   </head>
   <body>
     <div class="container-fluid">
-      <div class="row d-flex justify-content-center text-center p-5">
-        <div class="col-8">
-          <h1 class="mt-5 bg-warning-subtle p-2">
+      <div class="row d-flex justify-content-center text-center">
+        <div class="col-12 col-lg-8 px-0">
+          <h1 class="mt-5 bg-warning p-3 fw-bold border border-3 border-dark">
             Domain Name Generator
           </h1>
         </div>
       </div>
-      <div class="row d-flex justify-content-center text-center ">
-        <div class="col-2"><p id="pronoun"></p></div>
-        <div class="col-2"><p id="adjetive">hola</p></div>
-        <div class="col-2"><p id="noun">HOLA</p></div>
-        <div class="col-2"><p id="extension"></p></div>
+      <div class="row d-flex justify-content-center text-center fw-semibold">
+        <div class="col-3 col-lg-2 bg-warning-subtle pt-2 border border-dark">
+          <p id="pronoun"></p>
+        </div>
+        <div class="col-3 col-lg-2 bg-warning-subtle pt-2 border border-dark">
+          <p id="adjetive"></p>
+        </div>
+        <div class="col-3 col-lg-2 bg-warning-subtle pt-2 border border-dark">
+          <p id="noun"></p>
+        </div>
+        <div class="col-3 col-lg-2 bg-warning-subtle pt-2 border border-dark">
+          <p id="extension"></p>
+        </div>
+      </div>
+      <div
+        id="generatedDomains"
+        class="text-center mt-3 domains mx-auto px-5 fw-semibold fs-5"
+      ></div>
+      <div class="text-center mt-1 d-flex justify-content-center">
+        <div class="arrow mt-3 pt-3 pe-2">
+          <i class="fa-solid fa-arrow-right fs-1"></i>
+        </div>
+        <button id="generatorButton" class="p-2 fw-bold fs-5 mt-4 mb-2">
+          Create all your domains
+        </button>
+        <div class="arrow mt-3 pt-3 ps-2">
+          <i class="fa-solid fa-arrow-left fs-1"></i>
+        </div>
       </div>
     </div>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/d35c03822b.js"
       crossorigin="anonymous"
     ></script>
     <script src="app.js"></script>

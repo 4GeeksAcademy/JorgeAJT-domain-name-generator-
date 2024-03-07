@@ -15,11 +15,19 @@ window.onload = function() {
   document.getElementById("noun").innerHTML = showArrayVertical(noun);
   document.getElementById("extension").innerHTML = showArrayVertical(extension);
 
+  const removeDot = domainExtension => {
+    let newDomainExtension = domainExtension.slice(1); // quito el punto de la extension
+    return newDomainExtension;
+  };
+
   const generateDomainHacks = (domainNoun, domainExtension) => {
-    let newStringExtension = domainExtension.slice(1); // quito el punto de la extension
-    if (domainNoun.endsWith(newStringExtension) == true) {
+    let domainExtensionWithoutDot = removeDot(domainExtension);
+    if (domainNoun.endsWith(domainExtensionWithoutDot) == true) {
       // compruebo si coincide el final del nombre con la extension sin el punto
-      let newdomainNoun = domainNoun.slice(0, -newStringExtension.length); // si coincide creo nuevo nombre sin las ultimas letras de la extension
+      let newdomainNoun = domainNoun.slice(
+        0,
+        -domainExtensionWithoutDot.length
+      ); // si coincide creo nuevo nombre sin las ultimas letras de la extension
       return newdomainNoun; // devuelvo el nuevo nombre
     } else return domainNoun; // sino coincide, devuelvo el nombre tal cual sin cambiar
   };
